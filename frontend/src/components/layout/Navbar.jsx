@@ -3,7 +3,7 @@ import Logo from "../assets/logo.png"
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-center drop-shadow-md py-2 bg-white">
+    <nav className="flex justify-center py-1 bg-orange-50">
         <div className='w-10/12 flex justify-between items-center font-roboto_font'>
             <section className="flex gap-8">
                 <Link to='/' className='font-light text-sm'>
@@ -15,7 +15,7 @@ const Navbar = () => {
                 </Link>
 
                 <Link to='/' className='font-light text-sm'>
-                    Contact Us
+                    Events
                 </Link>
             </section>
 
