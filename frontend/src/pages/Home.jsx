@@ -1,14 +1,15 @@
 import Header from "./Home/Header";
 import About from "./Home/About";
-import Contact from "./Home/Contact";
+import Events from "./Home/Events";
 
 const Home = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-center gap-16 bg-bg_color">
+    <section className="w-full flex flex-col items-center justify-center bg-bg_color">
       <Header />
-      <section className="w-full h-1 border border-t-2 border-gray-200 bg-gray-200"></section>
+      <section className="w-full h-3 border border-t-2 border-cyan-600 bg-cyan-600"></section>
       <About/>
-      <Contact />
+      <section className="w-full h-3 border border-t-2 border-orange-600 bg-orange-600"></section>
+      <Events />
     </section>
   )
 }
