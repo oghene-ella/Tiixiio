@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,7 +26,7 @@ const formSchema = z.object({
   rememberMe: z.boolean().default(false).optional(),
 });
 
-export const Login = () => {
+const Login = () => {
   const [passwordType, setPasswordType] = useState(true);
   const EyeComponent = passwordType ? EyeIcon : EyeOff;
 
@@ -168,3 +168,4 @@ export const Login = () => {
     </div>
   );
 };
+export default Login;

@@ -1,8 +1,0 @@
-<svg width="845" height="662" viewBox="0 0 845 662" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="845" height="662" fill="#3A3A3A"/>
-<circle cx="681" cy="490" r="60" fill="#0E7490"/>
-<path d="M636 662C636 546.573 729.573 453 845 453V662H636Z" fill="#FF725E"/>
-<g style="mix-blend-mode:overlay">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M681 550C714.137 550 741 523.137 741 490C741 486.96 740.774 483.973 740.338 481.055C711.608 497.708 687.211 521.008 669.249 548.85C673.049 549.604 676.978 550 681 550Z" fill="#0E7490"/>
-</g>
-</svg>
