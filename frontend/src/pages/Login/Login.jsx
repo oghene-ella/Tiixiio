@@ -25,9 +25,9 @@ const formSchema = z.object({
   rememberMe: z.boolean().default(false).optional(),
 });
 
-const SignUp = () => {
+const Login = () => {
   const [passwordType, setPasswordType] = useState(true);
-  const EyeComponent = passwordType ? EyeOff : EyeIcon;
+  const EyeComponent = passwordType ? EyeIcon : EyeOff;
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -47,7 +47,7 @@ const SignUp = () => {
         <section className="bg-white lg:w-[45%] h-fit py-16 rounded-xl flex justify-center items-center">
           <main className="w-10/12 md:9/12 lg:w-7/12 flex flex-col gap-10">
             <header className="text-center flex flex-col gap-3"> 
-              <h1 className="text-header_black font-medium text-4xl">Sign Up </h1>
+              <h1 className="text-header_black font-medium text-4xl">Log In </h1>
               <p className="text-light_gray font-light text-lg">Enter your credentials as a to access your account</p>
             </header>
 
@@ -94,35 +94,6 @@ const SignUp = () => {
                             type={passwordType ? "password" : "text"}
                             className="w-full py-7 shadow"
                             placeholder="Enter Password"
-                            {...field}
-                          />
-                          <EyeComponent
-                            size={18}
-                            color="#667185"
-                            className="absolute right-4 top-5 "
-                            onClick={() => {
-                              setPasswordType((prev) => !prev);
-                            }}
-                          />
-                        </div>
-                      </FormControl>
-                      <FormMessage className="absolute" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="password"
-                  render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
-                      <FormLabel className="uppercase text-header_black font-normal ">Password</FormLabel>
-                      <FormControl>
-                        <div className="relative flex items-center">
-                          <Input
-                            type={passwordType ? "password" : "text"}
-                            className="w-full py-7 shadow"
-                            placeholder="Repeat your Password"
                             {...field}
                           />
                           <EyeComponent
@@ -193,9 +164,9 @@ const SignUp = () => {
               </Button>
 
               <section className="text-base text-center text-light_gray font-light flex gap-2 justify-center">
-                Have an account?{" "}
+                Are you new here?{" "}
                 <Link className="text-[#6358E1] font-medium"
-                to="/creators/login">Login</Link>
+                to="/creators/sign_up">Create Account</Link>
               </section>
             </section>
           </main>
@@ -204,4 +175,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;

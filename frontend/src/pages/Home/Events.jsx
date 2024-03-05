@@ -1,8 +1,16 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Img from "../../components/assets/contact_left.svg"
 
 const Contact = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <section className="w-full h-fit flex items-center bg-orange-50">
+    <section className="w-full h-fit flex items-center bg-orange-50" id="event" data-aos="fade-up">
         <section className="w-10/12 mx-auto h-fit flex flex-col gap-12 py-10">
           <span className="flex flex-col gap-3">
             <h1 className="text-3xl ">Latest Events</h1>

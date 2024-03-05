@@ -1,3 +1,7 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { Link } from "react-router-dom";
 import AboutHeader from "../../components/assets/about1.svg";
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
@@ -5,9 +9,13 @@ import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 
 const About = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="bg-gray-900 flex flex-col gap-20 py-20" id="about">
-        <main className="w-10/12 text-white mx-auto flex flex-col lg:flex-row gap-16 items-center">
+        <main className="w-10/12 text-white mx-auto flex flex-col lg:flex-row gap-16 items-center" data-aos="fade-right">
           <img src={AboutHeader} className=""/>
           <section className="flex flex-col gap-5">
               <h1 className="text-4xl text-white font-roboto_font font-semibold text-center lg:text-start">About Tiixiio</h1>
@@ -20,7 +28,7 @@ const About = () => {
 
         <hr className="h-2 bg-gray-700 border border-gray-700"/>
 
-        <section className="text-white w-10/12 mx-auto flex flex-col gap-16">
+        <section className="text-white w-10/12 mx-auto flex flex-col gap-16" data-aos="fade-right">
           <h1 className="text-4xl font-roboto_font">Why Choose Us</h1>
           <main className="grid grid-cols-1 lg:grid-cols-3 gap-14">
             <section className="flex flex-col gap-5">
