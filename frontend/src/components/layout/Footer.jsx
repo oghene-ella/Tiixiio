@@ -5,7 +5,7 @@ const Footer = () => {
         <nav className="flex flex-wrap justify-center md:justify-end mb-4">
           <a href="/" className="mr-4 hover:text-gray-400">Home</a>
           <a href="#about" className="mr-4 hover:text-gray-400">About</a>
-          <a href="#events" className="hover:text-gray-400">Events</a>
+          <a href="#event" className="hover:text-gray-400">Events</a>
         </nav>
         <div className="flex items-center mb-1 md:mb-0">
           <img src="/logo.png" alt="Logo" className="h-8 mr-2" />

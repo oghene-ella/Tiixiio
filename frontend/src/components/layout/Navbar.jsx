@@ -53,25 +53,25 @@ const Navbar = () => {
                     About
                   </a>
                   <a
-                    href="#events"
+                    href="#event"
                     className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
                     onClick={toggleMenu}
                   >
                     Events
                   </a>
                   <Link
-                    to="/login"
+                    to="/attendees/sign_up"
                     className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
                     onClick={toggleMenu}
                   >
-                    Login
+                    Attendees
                   </Link>
                   <Link
-                    to="/sign_up"
+                    to="/creators/sign_up"
                     className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
                     onClick={toggleMenu}
                   >
-                    Sign Up
+                    Creators
                   </Link>
                 </div>
               </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
             <a href="#about" className="font-light text-sm">
               About
             </a>
-            <a href="#events" className="font-light text-sm">
+            <a href="#event" className="font-light text-sm">
               Events
             </a>
           </section>
@@ -96,16 +96,16 @@ const Navbar = () => {
           </div>
           <section className="hidden md:flex gap-6 items-center">
             <Link
-              to="/login"
+              to="/attendees/sign_up"
               className="px-5 py-2 rounded-md text-gray-800 font-light text-sm"
             >
-              Login
+              Attendees
             </Link>
             <Link
-              to="/sign_up"
+              to="/creators/sign_up"
               className="bg-orange-600 px-6 py-2 text-center text-sm rounded-2xl text-white font-medium"
             >
-              Sign Up
+              Creators
             </Link>
           </section>
         </div>
