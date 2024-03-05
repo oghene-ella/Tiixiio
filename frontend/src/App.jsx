@@ -2,14 +2,14 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import Navbar from "./components/layout/Navbar";
 import Homepage from "./pages/Home";
-import Login from './pages/Login.jsx';
+import Login from './pages/Log_In.jsx';
 import SignUp from './pages/SignUp';
 import Footer from './components/layout/Footer';
 
 const App = () => {
   const location = useLocation();
 
-  const isAuthPage = location.pathname === '/login' || location.pathname === '/sign_up';
+  const isAuthPage = location.pathname === '/attendees/login'  || location.pathname === '/creators/login' || location.pathname === '/attendees/sign_up' ||location.pathname === '/creators/sign_up';
 
   return (
     <>
@@ -17,8 +17,10 @@ const App = () => {
       <div>
         <Routes>        
           <Route path="/"  element={<Homepage/>} />
-          <Route path="/login"  element={<Login />}/>
-          <Route path="/sign_up"  element={<SignUp />}/>
+          <Route path="/attendees/login"  element={<Login />}/>
+          <Route path="/creators/login"  element={<Login />}/>
+          <Route path="/attendees/sign_up"  element={<SignUp />}/>
+          <Route path="/creators/sign_up"  element={<SignUp />}/>
         </Routes>
       </div>
       {!isAuthPage && <Footer/>}

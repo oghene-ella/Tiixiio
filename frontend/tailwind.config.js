@@ -9,6 +9,13 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    backgroundImage: {
+      'login_signUp_url': "url('/Login_signup.svg')",
+    },
+    colors: {
+      "header_black": "#101928",
+      "light_gray": "#667185",
+    },
     container: {
       center: true,
       padding: "2rem",
