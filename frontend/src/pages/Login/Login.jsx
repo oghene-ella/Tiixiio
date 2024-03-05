@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <section
-      className="bg-login_signUp_url w-full h-screen border border-red-500 flex items-center justify-center">
+      className="bg-login_signUp_url w-full h-max sm:h-screen border border-red-500 flex items-center justify-center">
         <section className="bg-white lg:w-[45%] h-fit py-16 rounded-xl flex justify-center items-center">
           <main className="w-10/12 md:9/12 lg:w-7/12 flex flex-col gap-10">
             <header className="text-center flex flex-col gap-3"> 
