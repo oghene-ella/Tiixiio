@@ -19,7 +19,7 @@ const About = () => {
           <img src={AboutHeader} className=""/>
           <section className="flex flex-col gap-5">
               <h1 className="text-4xl text-white font-roboto_font font-semibold text-center lg:text-start">About Tiixiio</h1>
-              <p className="text-gray-300 font-normal text-center lg:text-start">Tiixiio is more than just a ticketing platform; it’s your passport to a world of unforgettable moments. From pulsating concerts to captivating theater performances, and thrilling sports events to enlightening cultural gatherings, we curate a diverse array of experiences that cater to every taste and passion.</p>
+              <p className="text-gray-300 font-normal text-center lg:text-start">Tiixiio is a powerful developer tool designed to provide detailed geographical information about Nigeria. Our mission is to empower developers with accurate data to build robust applications tailored to Nigeria's diverse regions and localities.</p>
               <Link to='/signup' className="w-full rounded-md lg:w-fit bg-cyan-600 px-6 py-2 text-center text-sm lg:rounded-3xl text-white font-medium">
                   Get Started
               </Link>
@@ -34,24 +34,24 @@ const About = () => {
             <section className="flex flex-col gap-5">
               <ConfirmationNumberOutlinedIcon fontSize="large"/>
               <span className="flex flex-col gap-5">
-                <h1 className="text-3xl font-my_font">Ticketing Experience</h1>
-                <p className="font-roboto_font text-base text-justify text-gray-300">Tiixiio offers a seamless ticketing experience for both event organizers and attendees. With our intuitive platform, you can effortlessly create and manage events, while attendees can easily discover, purchase, and access tickets with just a few clicks.</p>
+                <h1 className="text-3xl font-my_font">Extensive Geographical Data</h1>
+                <p className="font-roboto_font text-base text-justify text-gray-300">Tiixiio offers extensive coverage of Nigeria's regions, states, and local government areas (LGAs), providing developers with a rich source of information to tailor their applications accurately.</p>
               </span>
             </section>
 
             <section className="flex flex-col gap-5">
               <SupportAgentOutlinedIcon fontSize="large"/>
               <span className="flex flex-col gap-5">
-                <h1 className="text-3xl font-my_font">Customer Support</h1>
-                <p className="font-roboto_font text-base text-justify text-gray-300">At Tiixiio, we are committed to providing exceptional customer support every step of the way. Our dedicated team is here to assist you with any questions or issues you may encounter, ensuring a hassle-free experience for both organizers and attendees.</p>
+                <h1 className="text-3xl font-my_font">Developer-Friendly Experience</h1>
+                <p className="font-roboto_font text-base text-justify text-gray-300"> Simplify your workflow with Tiixiio's intuitive APIs, designed to streamline your development process and unleash the full potential of Nigeria's geographical data effortlessly.</p>
               </span>
             </section>
 
             <section className="flex flex-col gap-5">
               <ShieldOutlinedIcon fontSize="large" />
               <span className="flex flex-col gap-5">
-                <h1 className="text-3xl font-my_font">Secure and Reliable</h1>
-                <p className="font-roboto_font text-base text-justify text-gray-300">We prioritize the security and reliability of our platform. Rest assured that your data and transactions are protected with advanced security measures and encryption protocols. Our reliable infrastructure ensures that your event runs smoothly without any downtime or interruptions</p>
+                <h1 className="text-3xl font-my_font">Secure Authentication</h1>
+                <p className="font-roboto_font text-base text-justify text-gray-300">With robust API key authentication, Tiixiio ensures the security of your data, granting peace of mind as you integrate our services into your projects.</p>
               </span>
             </section>
           </main>

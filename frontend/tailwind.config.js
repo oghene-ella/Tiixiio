@@ -6,6 +6,7 @@ module.exports = {
     './components/**/*.{js,jsx}',
     './app/**/*.{js,jsx}',
     './src/**/*.{js,jsx}',
+    './index.html'
   ],
   prefix: "",
   theme: {
@@ -15,6 +16,12 @@ module.exports = {
     colors: {
       "header_black": "#101928",
       "light_gray": "#667185",
+      "white_bg": "#ffffff",
+      "light_orange-bg": "#FFF7ED",
+      "light_blue": "#A5F3FC",
+      "dark_orange-bg": "#EB580A",
+      "dark_blue": "#0691B2",
+      "dark_bg": "#111827"
     },
     container: {
       center: true,

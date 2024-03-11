@@ -1,19 +1,15 @@
 # Tiixiio
 
-Tiixiio is more than just a ticketing platform; it’s your passport to a world of unforgettable moments. From pulsating concerts to captivating theater performances, and thrilling sports events to enlightening cultural gatherings, we curate a diverse array of experiences that cater to every taste and passion
+Tiixiio is a developer tool for anyone who needs to know Nigeria, geographically at least. Locale’s API shows you all of Nigeria’s regions, states, and local government areas(LGAs). Locale is looking to be a very useful tool for the thousands of businesses building for Nigeria’s 200M+ population size. 
 
 
 ## Features and Implementation Guide
 
-– Authentication and Authorization: Event creators and users who can apply for those events should be authenticated. Creators can see events they have created and those that have applied to their events and eventees should be able to see all the events they can attend and also attend
+– Authentication and Authorization: Locale as a developer should be protected and every developer who tries to access the API should have an API key to authenticate their request. Developers will have their API key generated for them when they sign up. They can only see this API key once.
 
-– QR Code Generation: Eventful should be able to generate QR codes for eventees when the tickets are bought. This QR code would be used to verify that the eventee is valid and can have access to this event.
+– Search: Locale allows developers to search for information about Nigeria based on the following categories; region, state, and local government area(LGAs). It is possible that developers would want to search for a region with the states under them but not the local government. This also applies to states with LGAs. Locale should also return all metadata associated with each region, state, or LGA on search.
 
-– Shareability: When events are created on Eventful, eventees and creators should be able to share these events on any social media platform
-
-– Notifications: Eventful should be able to remind eventees of events that are coming up. When creators are creating the events, they should be able to set the reminder; Eg 1 day before the event or 1 week. Eventees should also be able to set their own reminder for the events. Make it as flexible as possible
-
-– Analytics: Eventful should be able to provide creators the ability to see how many attendees they have had all the time and specific to events. How many tickets have been bought all the time and specific to events. How many eventees bought tickets and had their QR code scanned for specific events
+– General APIs: Developers on Locale should be able to get all regions, states, and LGA with an API(s)
 
 
 ## Run Locally

@@ -60,18 +60,18 @@ const Navbar = () => {
                     Events
                   </a>
                   <Link
-                    to="/attendees/sign_up"
+                    to="/sign_up"
                     className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
                     onClick={toggleMenu}
                   >
-                    Attendees
+                    Sign Up
                   </Link>
                   <Link
-                    to="/creators/sign_up"
+                    to="/login"
                     className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
                     onClick={toggleMenu}
                   >
-                    Creators
+                    Log In
                   </Link>
                 </div>
               </div>
@@ -96,16 +96,16 @@ const Navbar = () => {
           </div>
           <section className="hidden md:flex gap-6 items-center">
             <Link
-              to="/attendees/sign_up"
+              to="/sign_up"
               className="px-5 py-2 rounded-md text-gray-800 font-light text-sm"
             >
-              Attendees
+              Sign Up
             </Link>
             <Link
-              to="/creators/sign_up"
+              to="/login"
               className="bg-orange-600 px-6 py-2 text-center text-sm rounded-2xl text-white font-medium"
             >
-              Creators
+              Log In
             </Link>
           </section>
         </div>
