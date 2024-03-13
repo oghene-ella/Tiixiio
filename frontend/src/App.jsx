@@ -6,6 +6,7 @@ import Login from './pages/Log_In.jsx';
 import SignUp from './pages/Sign_Up';
 import Footer from './components/layout/Footer';
 import Dashboard from "./pages/Dashboard"
+import Explore from './pages/Explore/Explore';
 
 const App = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const App = () => {
       <div>
         <Routes>        
           <Route path="/"  element={<Homepage/>} />
+          <Route path="/explore"  element={<Explore/>} />
           <Route path="/dashboard"  element={<Dashboard />}/>
           <Route path="/login"  element={<Login />}/>
           <Route path="/sign_up"  element={<SignUp />}/>
