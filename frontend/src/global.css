@@ -788,6 +788,10 @@ video {
   width: 91.666667%;
 }
 
+.w-2\/3 {
+  width: 66.666667%;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1752,6 +1756,10 @@ video {
     height: 100vh;
   }
 
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -1769,6 +1777,10 @@ video {
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .md\:flex-row {
