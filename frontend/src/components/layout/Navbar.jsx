@@ -59,6 +59,13 @@ const Navbar = () => {
                   >
                     Regions
                   </a>
+                  <a
+                    href="/explore"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
+                    onClick={toggleMenu}
+                  >
+                    Explore
+                  </a>
                   <Link
                     to="/sign_up"
                     className="block px-4 py-2 text-gray-800 hover:bg-green-100"
@@ -87,6 +94,9 @@ const Navbar = () => {
             </a>
             <a href="#regions" className="font-light text-sm">
               Regions
+            </a>
+            <a href="/explore" className="font-light text-sm">
+              Explore
             </a>
           </section>
           <div className="flex-none px-2 mx-2">
