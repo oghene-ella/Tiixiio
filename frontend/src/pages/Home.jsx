@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <section className="w-full flex flex-col items-center justify-center bg-bg_color">
       <Header />
-      <section className="w-full h-3 border border-t-2 border-red-500 bg-dark_blue"></section>
+      <section className="w-full h-3 border border-t-2 border-green-900 bg-green-900"></section>
       <About/>
-      <section className="w-full h-3 border border-t-2 border-dark_orange-bg bg-dark_orange-bg"></section>
+      <section className="w-full h-3 border border-t-2 border-green-900 bg-green-900"></section>
       <Events />
     </section>
   )

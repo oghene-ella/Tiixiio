@@ -2,21 +2,20 @@ import SideHeader from "../../components/assets/side_header.svg";
 
 const Header = () => {
   return (
-    <section className="w-full bg-light_orange-bg h-fit">
+    <section className="w-full bg-green-50 h-fit">
       <main className="w-10/12 h-fit mx-auto flex lg:flex lg:flex-row gap-10 justify-between items-center flex-col-reverse py-10">
         <section className="w-full flex flex-col gap-4 items-center lg:items-start lg:w-1/2 ">
-          <p className="bg-cyan-200 text-gray-900 font-bold px-5 py-2 w-fit rounded-full">
+          <p className="bg-green-300 text-gray-900 font-bold px-5 py-2 w-fit rounded-full">
             Discover
           </p>
           <h1 className="text-center lg:text-start font-roboto_font font-medium text-6xl leading-snug text-gray-800 text-wrap">
             Unlock
-            <b className="text-dark_orange-bg font-medium capitalize">
-              {" "}
-              Nigeria's{" "}
+            <b className="text-green-600 font-medium capitalize">
+              {" "}Nigeria's{" "}
             </b>
             <br />
             Geographical Potential
-            <b className="text-dark_orange-bg font-medium capitalize">
+            <b className="text-green-600 font-medium capitalize">
               {" "}
               with Tiixiio!
             </b>
@@ -29,7 +28,7 @@ const Header = () => {
           </p>
           <a
             href="#"
-            className="bg-dark_blue py-3 w-fit px-8 text-white_bg rounded-full hover:opacity-55 "
+            className="bg-green-400 font-bold py-3 w-fit px-8 text-white_bg rounded-full hover:bg-green-800 "
           >
             Get Started
           </a>

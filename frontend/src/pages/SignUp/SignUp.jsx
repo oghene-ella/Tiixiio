@@ -43,12 +43,12 @@ const SignUp = () => {
 
   return (
     <section
-      className="bg-login_signUp_url w-full h-max sm:h-screen border border-red-500 flex items-center justify-center">
+      className="bg-login_signUp_url w-full h-max sm:h-screen flex items-center justify-center">
         <section className="bg-white_bg lg:w-[45%] h-fit py-16 rounded-xl flex justify-center items-center">
           <main className="w-10/12 md:9/12 lg:w-7/12 flex flex-col gap-10">
             <header className="text-center flex flex-col gap-3"> 
               <h1 className="text-header_black font-medium text-4xl">Sign Up </h1>
-              <p className="text-light_gray font-light text-lg">Enter your credentials to access your account</p>
+              <p className="text-light_gray font-light text-lg">Enter your cgreenentials to access your account</p>
             </header>
 
             <Form {...form}>
@@ -60,7 +60,7 @@ const SignUp = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal">Email Address</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
@@ -77,7 +77,7 @@ const SignUp = () => {
                           />
                         </div>
                       </FormControl>
-                      <FormMessage className="absolute" />
+                      <FormMessage className="absolute py-2" />
                     </FormItem>
                   )}
                 />
@@ -86,7 +86,7 @@ const SignUp = () => {
                   control={form.control}
                   name="password"
                   render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal ">Password</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
@@ -106,7 +106,7 @@ const SignUp = () => {
                           />
                         </div>
                       </FormControl>
-                      <FormMessage className="absolute" />
+                      <FormMessage className="absolute py-2" />
                     </FormItem>
                   )}
                 />
@@ -115,7 +115,7 @@ const SignUp = () => {
                   control={form.control}
                   name="password"
                   render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal ">Password</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
@@ -135,7 +135,7 @@ const SignUp = () => {
                           />
                         </div>
                       </FormControl>
-                      <FormMessage className="absolute" />
+                      <FormMessage className="absolute py-2" />
                     </FormItem>
                   )}
                 />
@@ -145,7 +145,7 @@ const SignUp = () => {
                     control={form.control}
                     name="rememberMe"
                     render={({ field }) => (
-                      <FormItem className=" flex items-center gap-2 ">
+                      <FormItem className=" flex items-center gap-4 ">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
@@ -163,12 +163,12 @@ const SignUp = () => {
                     Forgot Password?
                   </Link>
                 </div>
-                <Button className="w-full bg-[#EB5017] hover:bg-[#EB5017]/50 active:bg-[#EB5017]/20">
+                <Button className="w-full bg-green-800 hover:bg-green-800/50 active:bg-green-800/20">
                   Log into Account
                 </Button>
 
                 <div className="flex items-center gap-2">
-                  <hr className="w-full bg-red-100" />{" "}
+                  <hr className="w-full bg-green-100" />{" "}
                   <span className="text-xs text-gray-400">Or</span>
                   <hr className="w-full" />
                 </div>

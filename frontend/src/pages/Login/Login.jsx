@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <section
-      className="bg-login_signUp_url w-full h-max sm:h-screen border border-red-500 flex items-center justify-center">
+      className="bg-login_signUp_url w-full h-max sm:h-screen flex items-center justify-center">
         <section className="bg-white_bg lg:w-[45%] h-fit py-16 rounded-xl flex justify-center items-center">
           <main className="w-10/12 md:9/12 lg:w-7/12 flex flex-col gap-10">
             <header className="text-center flex flex-col gap-3"> 
@@ -60,7 +60,7 @@ const Login = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal">Email Address</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
@@ -77,7 +77,7 @@ const Login = () => {
                           />
                         </div>
                       </FormControl>
-                      <FormMessage className="absolute" />
+                      <FormMessage className="absolute py-2" />
                     </FormItem>
                   )}
                 />
@@ -86,7 +86,7 @@ const Login = () => {
                   control={form.control}
                   name="password"
                   render={({ field }) => (
-                    <FormItem className="space-y-1 relative flex flex-col gap-2">
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal ">Password</FormLabel>
                       <FormControl>
                         <div className="relative flex items-center">
@@ -106,7 +106,7 @@ const Login = () => {
                           />
                         </div>
                       </FormControl>
-                      <FormMessage className="absolute" />
+                      <FormMessage className="absolute py-2" />
                     </FormItem>
                   )}
                 />
@@ -116,7 +116,7 @@ const Login = () => {
                     control={form.control}
                     name="rememberMe"
                     render={({ field }) => (
-                      <FormItem className=" flex items-center gap-2 ">
+                      <FormItem className=" flex items-center gap-4 ">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
@@ -134,7 +134,7 @@ const Login = () => {
                     Forgot Password?
                   </Link>
                 </div>
-                <Button className="w-full bg-[#EB5017] hover:bg-[#EB5017]/50 active:bg-[#EB5017]/20">
+                <Button className="w-full bg-green-700 hover:bg-green-700/50 active:bg-green-700/20">
                   Log into Account
                 </Button>
 

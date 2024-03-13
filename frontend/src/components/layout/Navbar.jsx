@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full flex justify-center py-1 bg-orange-50">
+    <nav className="w-full flex justify-center py-1 bg-green-50">
       <div className="w-10/12 px-4 md:px-8 lg:px-0">
         <div className="flex justify-between items-center">
           {/* Dropdown Menu */}
@@ -40,35 +40,35 @@ const Navbar = () => {
                 <div className="py-1">
                   <Link
                     to="/"
-                    className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
                     onClick={toggleMenu}
                   >
                     Home
                   </Link>
                   <a
                     href="#about"
-                    className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
                     onClick={toggleMenu}
                   >
                     About
                   </a>
                   <a
-                    href="#event"
-                    className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
+                    href="#regions"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
                     onClick={toggleMenu}
                   >
-                    Events
+                    Regions
                   </a>
                   <Link
                     to="/sign_up"
-                    className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
                     onClick={toggleMenu}
                   >
                     Sign Up
                   </Link>
                   <Link
                     to="/login"
-                    className="block px-4 py-2 text-gray-800 hover:bg-orange-100"
+                    className="block px-4 py-2 text-gray-800 hover:bg-green-100"
                     onClick={toggleMenu}
                   >
                     Log In
@@ -85,8 +85,8 @@ const Navbar = () => {
             <a href="#about" className="font-light text-sm">
               About
             </a>
-            <a href="#event" className="font-light text-sm">
-              Events
+            <a href="#regions" className="font-light text-sm">
+              Regions
             </a>
           </section>
           <div className="flex-none px-2 mx-2">
@@ -97,13 +97,13 @@ const Navbar = () => {
           <section className="hidden md:flex gap-6 items-center">
             <Link
               to="/sign_up"
-              className="px-5 py-2 rounded-md text-gray-800 font-light text-sm"
+              className="px-5 py-2 rounded-md text-green-800 font-light text-sm"
             >
               Sign Up
             </Link>
             <Link
               to="/login"
-              className="bg-orange-600 px-6 py-2 text-center text-sm rounded-2xl text-white font-medium"
+              className="bg-green-600 px-6 py-2 text-center text-sm rounded-2xl text-white font-medium"
             >
               Log In
             </Link>
