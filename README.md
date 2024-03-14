@@ -58,7 +58,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run main
+  npm run start:dev
 ```
 ## Tech Stack
 
@@ -69,7 +69,7 @@ Start the server
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://www.postman.com/ellahhh--sports/workspace/tiixiio/collection/13142275-16803ddc-b0a6-4605-9358-e069398127f8?action=share&creator=13142275)
 
 
 ## License
@@ -84,5 +84,4 @@ Start the server
 
 ## Support
 
-For support, email oghenekaro57@gmail.com.
-
+For support, gmail: oghenekaro57@gmail.com.

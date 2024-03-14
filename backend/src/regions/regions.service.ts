@@ -26,7 +26,7 @@ export class RegionsService {
       throw new NotFoundException('Invalid region ID');
     }
 
-    const region = await this.regionsModel.findById(id).exec();
+    const region = await this.regionsModel.findById(id);
 
     if (!region) {
       throw new NotFoundException('Region not found');
