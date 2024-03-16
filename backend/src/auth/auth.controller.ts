@@ -18,4 +18,9 @@ export class AuthController {
   login(@Body(ValidationPipe) loginDto: LoginDto): Promise<{ token: string }> {
     return this.authService.login(loginDto);
   }
+
+  @Get('/logout')
+  logout(): Promise<{ message: string }> {
+    return this.authService.logout();
+  }
 }

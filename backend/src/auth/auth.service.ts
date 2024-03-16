@@ -15,7 +15,9 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  async signUp(signUpDto: SignUpDto): Promise<{ token: string }> {
+  async signUp(
+    signUpDto: SignUpDto,
+  ): Promise<{ token: string; name: string; id: string; email: string }> {
     const { name, email, password } = signUpDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -26,12 +28,19 @@ export class AuthService {
       password: hashedPassword,
     });
 
-    const token = this.jwtService.sign({ id: user._id });
+    const token = this.jwtService.sign({ id: user._id.toString() });
 
-    return { token };
+    return {
+      token,
+      name: user.name,
+      id: user._id.toString(),
+      email: user.email,
+    };
   }
 
-  async login(loginDto: LoginDto): Promise<{ token: string }> {
+  async login(
+    loginDto: LoginDto,
+  ): Promise<{ token: string; name: string; id: string; email: string }> {
     const { email, password } = loginDto;
 
     const user = await this.userModel.findOne({ email });
@@ -46,8 +55,18 @@ export class AuthService {
       throw new UnauthorizedException('Invalid email or password');
     }
 
-    const token = this.jwtService.sign({ id: user._id });
+    const token = this.jwtService.sign({ id: user._id.toString() });
 
-    return { token };
+    return {
+      token,
+      name: user.name,
+      id: user._id.toString(),
+      email: user.email,
+    };
+  }
+
+  async logout(): Promise<{ message: string }> {
+    // JWT tokens are stateless, so logout is typically handled client-side
+    return { message: 'Logged out successfully' };
   }
 }
