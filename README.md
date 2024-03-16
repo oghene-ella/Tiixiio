@@ -69,7 +69,7 @@ Start the server
 
 ## Documentation
 
-[Documentation](https://www.postman.com/ellahhh--sports/workspace/tiixiio/collection/13142275-16803ddc-b0a6-4605-9358-e069398127f8?action=share&creator=13142275)
+[Documentation](https://documenter.getpostman.com/view/13142275/2sA2xmUqQg)
 
 
 ## License
