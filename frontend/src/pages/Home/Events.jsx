@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import Img from "../../components/assets/contact_left.svg"
-import North from "../../../public/hausa.jpg"
-import South from "../../../public/igbo.jpg"
-import West from "../../../public/yoruba.jpg"
+import North from "/hausa.jpg"
+import South from "/igbo.jpg"
+import West from "/yoruba.jpg"
 
 const Contact = () => {
   useEffect(() => {
