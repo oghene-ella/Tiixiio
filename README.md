@@ -66,6 +66,20 @@ Start the server
 
 **Server:** Nest Js, MongoDB
 
+## Create an .env File
+```bash
+DB_URL=your_url
+
+JWT_SECRET=your_jwt_secret_key
+
+JWT_EXPIRES=your_expiry_date
+
+CLIENT_SECRET=your_client_secret
+
+CLIENT_ID=your_google_client_id
+
+SECRET_KEY=your_secret_key
+```
 
 ## Documentation
 
