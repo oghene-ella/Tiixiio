@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FcGoogle } from "react-icons/fc";
-import { RiTwitterFill } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -14,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
+import { User } from 'lucide-react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -56,6 +56,32 @@ const SignUp = () => {
                 onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-6 w-full"
               >
+                <FormField
+                  control={form.control}
+                  name="username"
+                  render={({ field }) => (
+                    <FormItem className="space-y-1 relative flex flex-col gap-4">
+                      <FormLabel className="uppercase text-header_black font-normal">Username</FormLabel>
+                      <FormControl>
+                        <div className="relative flex items-center">
+                          <Input
+                            type="text"
+                            className="w-full py-7 shadow"
+                            placeholder="Enter Username"
+                            {...field}
+                          />
+                          <User
+                            size={18}
+                            color="#667185"
+                            className="absolute right-4 top-5 "
+                          />
+                        </div>
+                      </FormControl>
+                      <FormMessage className="absolute py-2" />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name="email"
@@ -164,7 +190,7 @@ const SignUp = () => {
                   </Link>
                 </div>
                 <Button className="w-full bg-green-800 hover:bg-green-800/50 active:bg-green-800/20">
-                  Log into Account
+                  Sign Up
                 </Button>
 
                 <div className="flex items-center gap-2">
@@ -182,14 +208,6 @@ const SignUp = () => {
               >
                 <FcGoogle size={20} />
                 Continue With Google
-              </Button>
-
-              <Button
-                variant="outline"
-                className="w-full gap-4 items-center font-semibold text-base"
-              >
-                <RiTwitterFill color="#1DA1F2" size={20} />
-                Continue With Twitter
               </Button>
 
               <section className="text-base text-center text-light_gray font-light flex gap-2 justify-center">

@@ -2,7 +2,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { FcGoogle } from "react-icons/fc";
-import { RiTwitterFill } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -153,14 +152,6 @@ const Login = () => {
               >
                 <FcGoogle size={20} />
                 Continue With Google
-              </Button>
-
-              <Button
-                variant="outline"
-                className="w-full gap-4 items-center font-semibold text-base"
-              >
-                <RiTwitterFill color="#1DA1F2" size={20} />
-                Continue With Twitter
               </Button>
 
               <section className="text-base text-center text-light_gray font-light flex gap-2 justify-center">
