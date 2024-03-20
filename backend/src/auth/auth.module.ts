@@ -29,10 +29,16 @@ import { SessionSerializer } from './utils/session.serialize';
     MongooseModule.forFeature([{ name: 'User', schema: userSchema }]),
   ],
   controllers: [AuthController],
-  providers: [AuthService, GoogleStrategy, GoogleService, SessionSerializer, {
-    provide: 'AUTH_SERVICE',
-    useClass: AuthService,
-  },],
+  providers: [
+    AuthService,
+    GoogleStrategy,
+    GoogleService,
+    SessionSerializer,
+    {
+      provide: 'AUTH_SERVICE',
+      useClass: AuthService,
+    },
+  ],
   exports: [AuthService],
 })
-export class AuthModule { }
+export class AuthModule {}
