@@ -1,6 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { baseUrl } from "../../config";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +24,7 @@ import { useState } from "react";
 import { EyeIcon, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
+  name: z.string(),
   email: z.string().email({ message: "Invalid email address." }),
   password: z.string(),
   rememberMe: z.boolean().default(false).optional(),
@@ -32,14 +37,27 @@ const SignUp = () => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
-  }
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(`${baseUrl}/auth/signup`, data);
+      console.log(response.data);
+      if (response.status === 201) {
+        toast.success("SignUp successful, Redirecting to the login page!");
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 3000);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message);
+    }
+  }  
 
   return (
     <section
@@ -58,7 +76,7 @@ const SignUp = () => {
               >
                 <FormField
                   control={form.control}
-                  name="username"
+                  name="name"
                   render={({ field }) => (
                     <FormItem className="space-y-1 relative flex flex-col gap-4">
                       <FormLabel className="uppercase text-header_black font-normal">Username</FormLabel>

@@ -1,6 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//import { useLoginHook } from "../../hooks/useLoginHook";
+import axios from "axios";
+import { baseUrl } from "../../config"
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,6 +29,7 @@ const formSchema = z.object({
   rememberMe: z.boolean().default(false).optional(),
 });
 
+
 const Login = () => {
   const [passwordType, setPasswordType] = useState(true);
   const EyeComponent = passwordType ? EyeIcon : EyeOff;
@@ -36,9 +42,26 @@ const Login = () => {
     },
   });
 
-  function onSubmit(values) {
-    console.log(values);
+ // const { login } = useLoginHook();
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.get(`${baseUrl}/auth/login`, data);
+      console.log(response.data);
+      if (response.status === 200) {
+        toast.success("Logged In Sucessfully!");
+        //login(response.data);
+        console.log(response.data)
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 3000);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message);
+    }
   }
+
 
   return (
     <section
