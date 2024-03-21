@@ -51,7 +51,7 @@ const SignUp = () => {
         toast.success("SignUp successful, Redirecting to the login page!");
         setTimeout(() => {
           window.location.href = "/login";
-        }, 3000);
+        }, 8000);
       }
     } catch (error) {
       console.error(error);
@@ -66,7 +66,7 @@ const SignUp = () => {
           <main className="w-10/12 md:9/12 lg:w-7/12 flex flex-col gap-10">
             <header className="text-center flex flex-col gap-3"> 
               <h1 className="text-header_black font-medium text-4xl">Sign Up </h1>
-              <p className="text-light_gray font-light text-lg">Enter your cgreenentials to access your account</p>
+              <p className="text-light_gray font-light text-lg">Enter your Credentials to access your account</p>
             </header>
 
             <Form {...form}>

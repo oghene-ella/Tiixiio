@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import { useLoginHook } from "../../hooks/useLoginHook";
 import axios from "axios";
 import { baseUrl } from "../../config"
 import { FcGoogle } from "react-icons/fc";
@@ -42,18 +41,16 @@ const Login = () => {
     },
   });
 
- // const { login } = useLoginHook();
-
   const onSubmit = async (data) => {
     try {
-      const response = await axios.get(`${baseUrl}/auth/login`, data);
-      console.log(response.data);
-      if (response.status === 200) {
+      const response = await axios.post(`${baseUrl}/auth/login`, data);
+      // const response = await axios.post(`http://localhost:3000/auth/login`, data);
+      console.log(response);
+      if (response.status === 201) {
         toast.success("Logged In Sucessfully!");
-        //login(response.data);
         console.log(response.data)
         setTimeout(() => {
-          window.location.href = "/dashboard";
+          window.location.href = "/user/dashboard";
         }, 3000);
       }
     } catch (error) {

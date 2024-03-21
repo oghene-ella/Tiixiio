@@ -1,11 +1,29 @@
 import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
-import { useContext, createContext, useState } from "react"
+import { useContext, createContext, useState, useEffect } from "react"
+import axios from 'axios';
+//import { baseUrl } from "../../config"
 
 const SidebarContext = createContext()
 
+// eslint-disable-next-line react/prop-types
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(true)
-  
+  const [userDetails, setUserDetails] = useState(null);
+
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/user/dashboard`);
+        //const response = await axios.get(`${baseUrl}/user/dashboard`);
+        setUserDetails(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchUserDetails();
+  }, []);
+
   return (
     <aside className="w-fit h-screen">
       <nav className="h-full flex flex-col bg-white border-r shadow-sm">
@@ -47,8 +65,8 @@ export default function Sidebar({ children }) {
           `}
           >
             <div className="leading-4">
-              <h4 className="font-semibold">Ellahhh</h4>
-              <span className="text-xs text-gray-600">oghenekaro57@gmail.com</span>
+              <h4 className="font-semibold">{userDetails?.name}</h4>
+              <span className="text-xs text-gray-600">{userDetails?.email}</span>
             </div>
             <MoreVertical size={20} />
           </div>
@@ -58,6 +76,7 @@ export default function Sidebar({ children }) {
   )
 }
 
+// eslint-disable-next-line react/prop-types
 export function SidebarItem({ icon, text, active, alert }) {
   const { expanded } = useContext(SidebarContext)
   
