@@ -14,12 +14,17 @@ export class AuthService {
     @InjectModel(User.name)
     private userModel: Model<User>,
     private jwtService: JwtService,
-  ) { }
+  ) {}
 
-  async signUp(
-    signUpDto: SignUpDto,
-  ): Promise<{ token: string; name: string; id: string; email: string }> {
-    const { name, email, password } = signUpDto;
+  async signUp(signUpDto: SignUpDto): Promise<{
+    token: string;
+    name: string;
+    id: string;
+    email: string;
+    apiKey: string;
+  }> {
+    const { name, email, password, apiKey } = signUpDto;
+    console.log(apiKey);
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -27,6 +32,7 @@ export class AuthService {
       name,
       email,
       password: hashedPassword,
+      apiKey,
     });
 
     const token = this.jwtService.sign({ id: user._id.toString() });
@@ -36,6 +42,7 @@ export class AuthService {
       name: user.name,
       id: user._id.toString(),
       email: user.email,
+      apiKey,
     };
   }
 
@@ -79,7 +86,7 @@ export class AuthService {
     if (user) return user;
     console.log('User not found. Creating...');
     const newUser = this.userModel.create(details);
-    return newUser
+    return newUser;
   }
 
   async findUser(id: number) {

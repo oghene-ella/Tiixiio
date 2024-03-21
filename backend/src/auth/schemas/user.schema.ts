@@ -22,6 +22,9 @@ export class User {
 
   @Prop()
   refreshToken?: string;
+
+  @Prop()
+  apiKey: string;
 }
 
 export const userSchema = SchemaFactory.createForClass(User);

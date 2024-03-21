@@ -4,7 +4,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';
 import { MongooseModule } from '@nestjs/mongoose';
-//import { JwtStrategy } from './jwt.strategy';
+import { JwtStrategy } from './jwt.strategy';
 import { userSchema } from './schemas/user.schema';
 import { ConfigService } from '@nestjs/config';
 import { GoogleStrategy } from './utils/google.strategy';
@@ -31,6 +31,7 @@ import { SessionSerializer } from './utils/session.serialize';
   controllers: [AuthController],
   providers: [
     AuthService,
+    JwtStrategy,
     GoogleStrategy,
     GoogleService,
     SessionSerializer,
