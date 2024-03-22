@@ -72,9 +72,11 @@ export class AuthService {
       email: user.email,
     };
   }
+  private jwtBlacklist: string[] = [];
+  async logout(token: string): Promise<{ message: string }> {
+    // Add the token to the blacklist
+    this.jwtBlacklist.push(token);
 
-  async logout(): Promise<{ message: string }> {
-    // JWT tokens are stateless, so logout is typically handled client-side
     return { message: 'Logged out successfully' };
   }
 
