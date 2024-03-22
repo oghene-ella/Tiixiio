@@ -45,10 +45,11 @@ const Login = () => {
     try {
       const response = await axios.post(`${baseUrl}/auth/login`, data);
       // const response = await axios.post(`http://localhost:3000/auth/login`, data);
-      console.log(response);
+      //console.log(response);
       if (response.status === 201) {
         toast.success("Logged In Sucessfully!");
-        console.log(response.data)
+        localStorage.setItem('token', response.data.token);
+        //console.log(response.data)
         setTimeout(() => {
           window.location.href = "/user/dashboard";
         }, 3000);
