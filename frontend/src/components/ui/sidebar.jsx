@@ -1,7 +1,8 @@
-import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react"
+import { LogOut, ChevronLast, ChevronFirst } from "lucide-react"
 import { useContext, createContext, useState, useEffect } from "react"
 import axios from 'axios';
-//import { baseUrl } from "../../config"
+import { useNavigate } from 'react-router-dom';
+import { baseUrl } from "../../config"
 
 const SidebarContext = createContext()
 
@@ -10,19 +11,42 @@ export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(true)
   const [userDetails, setUserDetails] = useState(null);
 
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    try {
+      await axios.get(`${baseUrl}/auth/logout`, {}, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+
+      localStorage.removeItem('token');
+
+      navigate('/login');
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     const fetchUserDetails = async () => {
+      const token = localStorage.getItem('token');
       try {
-        const response = await axios.get(`http://localhost:3000/user/dashboard`);
-        //const response = await axios.get(`${baseUrl}/user/dashboard`);
+        const response = await axios.get(`${baseUrl}/user/dashboard`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+  
         setUserDetails(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-
+  
     fetchUserDetails();
-  }, []);
+  }, []);  
 
   return (
     <aside className="w-fit h-screen">
@@ -68,7 +92,9 @@ export default function Sidebar({ children }) {
               <h4 className="font-semibold">{userDetails?.name}</h4>
               <span className="text-xs text-gray-600">{userDetails?.email}</span>
             </div>
-            <MoreVertical size={20} />
+            <button onClick={logout}>
+              <LogOut size={20} />
+            </button>
           </div>
         </div>
       </nav>
