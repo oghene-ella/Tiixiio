@@ -4,7 +4,7 @@ import { z } from "zod";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import { baseUrl } from "../../config"
+//import { baseUrl } from "../../config"
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,15 +43,15 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post(`${baseUrl}/auth/login`, data);
-      // const response = await axios.post(`http://localhost:3000/auth/login`, data);
+      // const response = await axios.post(`${baseUrl}/auth/login`, data);
+      const response = await axios.post(`http://localhost:3000/auth/login`, data);
       //console.log(response);
       if (response.status === 201) {
         toast.success("Logged In Sucessfully!");
         localStorage.setItem('token', response.data.token);
         //console.log(response.data)
         setTimeout(() => {
-          window.location.href = "/user/dashboard";
+          window.location.href = "/user/dashboard/overview";
         }, 3000);
       }
     } catch (error) {

@@ -3,6 +3,8 @@ import { useContext, createContext, useState, useEffect } from "react"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from "../../config"
+import { Link, useLocation } from 'react-router-dom';
+
 
 const SidebarContext = createContext()
 
@@ -103,9 +105,11 @@ export default function Sidebar({ children }) {
 }
 
 // eslint-disable-next-line react/prop-types
-export function SidebarItem({ icon, text, active, alert }) {
-  const { expanded } = useContext(SidebarContext)
-  
+export function SidebarItem({ icon, text, to }) {
+  const { expanded } = useContext(SidebarContext);
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
   return (
     <li
       className={`
@@ -113,40 +117,23 @@ export function SidebarItem({ icon, text, active, alert }) {
         font-medium rounded-md cursor-pointer
         transition-colors group
         ${
-          active
+          isActive
             ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
             : "hover:bg-indigo-50 text-gray-600"
         }
     `}
     >
-      {icon}
-      <span
-        className={`overflow-hidden transition-all ${
-          expanded ? "w-52 ml-3" : "w-0"
-        }`}
-      >
-        {text}
-      </span>
-      {alert && (
-        <div
-          className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${
-            expanded ? "" : "top-2"
+      <Link to={to} className="flex items-center">
+        {icon}
+        <span
+          className={`overflow-hidden transition-all ${
+            expanded ? "w-52 ml-3" : "w-0"
           }`}
-        />
-      )}
-
-      {!expanded && (
-        <div
-          className={`
-          absolute left-full rounded-md px-2 py-1 ml-6
-          bg-indigo-100 text-indigo-800 text-sm
-          invisible opacity-20 -translate-x-3 transition-all
-          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      `}
         >
           {text}
-        </div>
-      )}
+        </span>
+      </Link>
     </li>
-  )
+  );
 }
+

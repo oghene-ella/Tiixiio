@@ -7,6 +7,7 @@ import { JwtService } from '@nestjs/jwt';
 import { SignUpDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 import { UserDetails } from './utils/types';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class AuthService {
@@ -23,8 +24,9 @@ export class AuthService {
     email: string;
     apiKey: string;
   }> {
-    const { name, email, password, apiKey } = signUpDto;
-    console.log(apiKey);
+    const { name, email, password } = signUpDto;
+
+    const apiKey = uuidv4();
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -36,13 +38,14 @@ export class AuthService {
     });
 
     const token = this.jwtService.sign({ id: user._id.toString() });
+    console.log(user);
 
     return {
       token,
       name: user.name,
       id: user._id.toString(),
       email: user.email,
-      apiKey,
+      apiKey: user.apiKey,
     };
   }
 

@@ -41,7 +41,7 @@ const App = () => {
   }, []);
   
 
-  const isAuthPage = location.pathname === '/login'  || location.pathname === '/sign_up' || location.pathname === '/user/dashboard';
+  const isAuthPage = location.pathname === '/login'  || location.pathname === '/sign_up' || location.pathname === '/user/dashboard/overview' || location.pathname === '/user/dashboard/profile';
 
   return (
     <>
@@ -50,7 +50,8 @@ const App = () => {
         <Routes>        
           <Route path="/"  element={<Homepage/>} />
           <Route path="/explore"  element={<Explore/>} />
-          <Route path="/user/dashboard"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/user/dashboard/overview"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/user/dashboard/profile"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/login"  element={<Login />}/>
           <Route path="/sign_up"  element={<SignUp />}/>
 
