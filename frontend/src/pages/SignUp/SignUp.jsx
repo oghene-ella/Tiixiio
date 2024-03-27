@@ -52,7 +52,7 @@ const SignUp = () => {
         toast.success("SignUp successful, Redirecting to the login page!");
         setTimeout(() => {
           window.location.href = "/login";
-        }, 8000);
+        }, 3000);
       }
     } catch (error) {
       console.error(error);

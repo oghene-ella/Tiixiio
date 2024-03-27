@@ -1,6 +1,5 @@
 import Sidebar, { SidebarItem } from "@/components/ui/sidebar";
 import { UserRound, Home } from "lucide-react";
-import OtherSide from "./OtherSide"
 
 const HomeOverview = () => {
   return (
@@ -10,7 +9,8 @@ const HomeOverview = () => {
         <SidebarItem icon={<UserRound color="#5b51cf" size={20} />} text="Profile" alert to="/user/dashboard/profile" />
       </Sidebar>
 
-      <OtherSide />
+      <h1>Overview</h1>
+      <p>ApiKey: </p>
     </section>
   )
 }

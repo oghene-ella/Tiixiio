@@ -9,6 +9,7 @@ import Login from './pages/Log_In.jsx';
 import SignUp from './pages/Sign_Up';
 import Footer from './components/layout/Footer';
 import Dashboard from "./pages/Dashboard"
+import Profile from './pages/Dashboard/Profile';
 import Explore from './pages/Explore/Explore';
 
 const App = () => {
@@ -51,7 +52,7 @@ const App = () => {
           <Route path="/"  element={<Homepage/>} />
           <Route path="/explore"  element={<Explore/>} />
           <Route path="/user/dashboard/overview"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/user/dashboard/profile"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route path="/user/dashboard/profile"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
           <Route path="/login"  element={<Login />}/>
           <Route path="/sign_up"  element={<SignUp />}/>
 
