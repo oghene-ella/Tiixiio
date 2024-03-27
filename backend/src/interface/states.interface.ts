@@ -4,4 +4,7 @@ export interface Region {
   regionId: string;
   regionName: string;
   capital: string;
+  url: string;
+  img: string;
+  touristsAttractions: string[];
 }

@@ -22,6 +22,12 @@ export class States extends Document {
   population: number;
 
   @Prop()
+  url: string;
+
+  @Prop()
+  img: string;
+
+  @Prop()
   area: string;
 
   @Prop()
