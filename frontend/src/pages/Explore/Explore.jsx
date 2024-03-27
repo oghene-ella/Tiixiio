@@ -54,7 +54,7 @@ const Explore = () => {
             Regions
           </NavLink>
           <NavLink
-            to="/explore"
+            to="/explore/states"
             className={`text-lg ${selectedSection === "/explore/states" ? "underline decoration-double decoration-green-600" : ""}`}
             style={{ textDecorationColor: selectedSection === "/explore/states" ? "green" : "inherit" }}
             onClick={() => setSelectedSection("/explore/states")}
@@ -62,7 +62,7 @@ const Explore = () => {
             States
           </NavLink>
           <NavLink
-            to="/explore"
+            to="/explore/lgas"
             className={`text-lg ${selectedSection === "/explore/lgas" ? "underline decoration-double decoration-green-600" : ""}`}
             style={{ textDecorationColor: selectedSection === "/explore/lgas" ? "green" : "inherit" }}
             onClick={() => setSelectedSection("/explore/lgas")}

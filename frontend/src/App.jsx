@@ -51,6 +51,8 @@ const App = () => {
         <Routes>        
           <Route path="/"  element={<Homepage/>} />
           <Route path="/explore"  element={<Explore/>} />
+          <Route path="/explore/states"  element={<Explore/>} />
+          <Route path="/explore/lgas"  element={<Explore/>} />
           <Route path="/user/dashboard/overview"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/user/dashboard/profile"  element={isLoading ? <div>Loading...</div> : isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
           <Route path="/login"  element={<Login />}/>
