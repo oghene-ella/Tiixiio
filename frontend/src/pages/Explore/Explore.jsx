@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Explore = () => {
   const [selectedSection, setSelectedSection] = useState("/explore");
-  const [data, setData] = useState("");
+  const [data, setData] = useState(null);
 
   const handleSearch = (query) => {
     console.log("Search query:", query);
@@ -15,23 +15,31 @@ const Explore = () => {
     try {
       const response = await axios.get(url);
       setData(response.data);
-      console.log(setData(response.data.articles))
+      console.log(response.data)
+      console.log(setData(response.data))
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
+  const getFirst100Words = (str) => {
+    const words = str.split(' ');
+    return words.slice(0, 100).join(' ');
+  };
+
   useEffect(() => {
     if (selectedSection === "/explore") {
-      const Key = "36c51d08021748ddaa2f57785caedb1e"
-      fetchData(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${Key}`);
-      //fetchData(`https://tiixiio.onrender.com/states`)
+      //const Key = "36c51d08021748ddaa2f57785caedb1e"
+      //fetchData(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${Key}`);
+      fetchData(`https://tiixiio.onrender.com/regions`)
     } else if (selectedSection === "/explore/states") {
-      const Key = "36c51d08021748ddaa2f57785caedb1e"
-      fetchData(`https://newsapi.org/v2/everything?q=tesla&from=2024-02-27&sortBy=publishedAt&apiKey=${Key}`);
+      fetchData(`https://tiixiio.onrender.com/states`)
+      //const Key = "36c51d08021748ddaa2f57785caedb1e"
+      //fetchData(`https://newsapi.org/v2/everything?q=tesla&from=2024-02-27&sortBy=publishedAt&apiKey=${Key}`);
     } else if (selectedSection === "/explore/lgas") {
-      const Key = "36c51d08021748ddaa2f57785caedb1e"
-      fetchData(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${Key}`);
+      //fetchData(`https://tiixiio.onrender.com/regions`)
+      //const Key = "36c51d08021748ddaa2f57785caedb1e"
+      //fetchData(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${Key}`);
     }
   }, [selectedSection]);
 
@@ -73,23 +81,24 @@ const Explore = () => {
         
         <div className='w-full mx-auto flex flex-col gap-5'>
           <ul className='grid grid-cols-1 w-full lg:w-fit xl:grid-cols-2 gap-10 mx-auto mb-10' >
-            {data && data.map(({ id, author, description, title, urlToImage, publishedAt, url }) => (
+            {data && data.map(({ id, description, name, img, url }) => (
               <li key={id} className='h-fit flex items-center gap-2 rounded-md py-3 '>
-                <img src={urlToImage} alt={author} className='w-1/2 h-full' />
+                <img src={img} alt={id} className='w-1/2 h-full' />
                 <section className='w-1/2 flex flex-col gap-3'>
                   <span className='flex flex-col gap-2 px-3'>
-                    <h2 className='text-lg font-semibold'>{title}</h2>
+                    <h2 className='text-lg font-semibold'>{name}</h2>
                   </span>
                   <p className='text-gray-400 text-sm px-3'>
-                    {description}
+                    {getFirst100Words(description)}...
                   </p>
                   <section className='flex justify-between items-center px-3'>
                     <section className='flex items-center gap-3'>
-                      <img src={urlToImage} className='w-10 h-10 rounded-full' />
-                      <span className='flex flex-col gap-1'>
-                        <p className='text-sm font-semibold text-my-black' >{author}</p>
-                        <p className='text-xs text-gray-500'>{publishedAt}</p>
-                      </span>
+                        <span className='flex gap-1 items-center'>
+                          <p className="text-sm font-semibold">States: </p>
+                        {data[0].states.map((state, index) => (
+                          <p className='text-sm font-light text-my-black' key={index}>{state}</p>
+                        ))}
+                        </span>
                     </section>
                     <NavLink to={`${url}`} className='flex flex-col gap-5'>
                       <p className='underline text-xs text-gray-600 cursor-pointer'>View</p>

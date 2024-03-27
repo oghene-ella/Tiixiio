@@ -10,6 +10,12 @@ export class Regions extends Document {
   states: string[];
 
   @Prop()
+  url: string;
+
+  @Prop()
+  img: string;
+
+  @Prop()
   population: number;
 
   @Prop()
