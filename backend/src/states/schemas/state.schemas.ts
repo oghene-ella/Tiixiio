@@ -40,7 +40,7 @@ export class States extends Document {
   ethnicGroups: string[];
 
   @Prop({ type: [{ type: String }] })
-  touristAttractions: string[];
+  touristsAttractions: string[];
 
   @Prop({ type: [{ type: String }] })
   languagesSpoken: string[];
