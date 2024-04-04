@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { RegionsModule } from './regions/regions.module';
 import { StatesModule } from './states/states.module';
 import { AuthModule } from './auth/auth.module';
+import { LgasModule } from './lgas/lgas.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     RegionsModule,
     StatesModule,
+    LgasModule,
     AuthModule,
   ],
   controllers: [AppController],
