@@ -9,7 +9,8 @@ import { StatesModule } from './states/states.module';
 import { AuthModule } from './auth/auth.module';
 import { LgasModule } from './lgas/lgas.module';
 import { SearchModule } from './search/search.module';
-import { ThrottlerModule } from '@nestjs/throttler';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -34,6 +35,12 @@ import { ThrottlerModule } from '@nestjs/throttler';
     ]),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+  ],
 })
 export class AppModule {}
