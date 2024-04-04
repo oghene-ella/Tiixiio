@@ -9,6 +9,7 @@ import { StatesModule } from './states/states.module';
 import { AuthModule } from './auth/auth.module';
 import { LgasModule } from './lgas/lgas.module';
 import { SearchModule } from './search/search.module';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -25,6 +26,12 @@ import { SearchModule } from './search/search.module';
     LgasModule,
     SearchModule,
     AuthModule,
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 10,
+      },
+    ]),
   ],
   controllers: [AppController],
   providers: [AppService],
