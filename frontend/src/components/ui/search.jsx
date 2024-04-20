@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Button } from "./button"; // Assuming Button component is defined in a separate file
+import { Button } from "./button"; 
 
 const SearchTag = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = () => {
-    // Call the onSearch callback function with the current search query
     if (onSearch) {
       onSearch(searchQuery);
     }
@@ -17,7 +16,6 @@ const SearchTag = ({ onSearch }) => {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      // Trigger search when Enter key is pressed
       handleSearch();
     }
   };

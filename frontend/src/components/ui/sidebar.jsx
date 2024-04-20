@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from "../../config"
 import { Link, useLocation } from 'react-router-dom';
+//import AuthContext from "@/context/authContext";
+import AuthContext from "@/context/authContext";
 
 
 const SidebarContext = createContext()
@@ -11,26 +13,34 @@ const SidebarContext = createContext()
 // eslint-disable-next-line react/prop-types
 export default function Sidebar({ children }) {
   const [expanded, setExpanded] = useState(true)
+  // eslint-disable-next-line no-unused-vars
   const [userDetails, setUserDetails] = useState(null);
+
+  const { logout } = useContext(AuthContext)
+  const user = JSON.parse(localStorage.getItem('user'))
 
   const navigate = useNavigate();
 
-  const logout = async () => {
-    try {
-      await axios.get(`${baseUrl}/auth/logout`, {}, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      });
 
-      localStorage.removeItem('token');
+  // Moving this code to your context
+  // const logout = async () => {
+  //   try {
+  //     await axios.get(`${baseUrl}/auth/logout`, {}, {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem('token')}`
+  //       }
+  //     });
 
-      navigate('/login');
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     localStorage.removeItem('token');
 
+  //     navigate('/login');
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+
+
+  // Please what exactly does this function do. This user details, is it not what we are getting when you log in?
   useEffect(() => {
     const fetchUserDetails = async () => {
       const token = localStorage.getItem('token');
@@ -51,8 +61,8 @@ export default function Sidebar({ children }) {
   }, []);  
 
   return (
-    <aside className="w-fit h-screen">
-      <nav className="h-full flex flex-col bg-white border-r shadow-sm">
+    <aside className="flex h-screen">
+      <nav className="w-fit h-full flex flex-col bg-white border-r shadow-sm md:sticky">
         <div className="p-4 pb-2 flex justify-between items-center">
           <span className="flex gap-3 items-center">
             <img
@@ -80,7 +90,7 @@ export default function Sidebar({ children }) {
 
         <div className="border-t flex p-3">
           <img
-            src="https://ui-avatars.com/api/?background=c7d2fe&color=3730a3&bold=true"
+            src={`https://ui-avatars.com/api/?name=${user?.name}&background=c7d2fe&color=3730a3&bold=true`}
             alt=""
             className="w-10 h-10 rounded-md"
           />
@@ -91,10 +101,14 @@ export default function Sidebar({ children }) {
           `}
           >
             <div className="leading-4">
-              <h4 className="font-semibold">{userDetails?.name}</h4>
-              <span className="text-xs text-gray-600">{userDetails?.email}</span>
+              <h4 className="font-semibold">{user?.name}</h4>
+              <span className="text-xs text-gray-600">{user?.email}</span>
             </div>
-            <button onClick={logout}>
+            <button onClick={()=>{
+              logout()
+              // Put the route you would want it to go to when you logout
+              navigate('/')
+            }}>
               <LogOut size={20} />
             </button>
           </div>
