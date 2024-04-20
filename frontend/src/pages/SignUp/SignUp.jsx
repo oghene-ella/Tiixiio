@@ -1,11 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import { baseUrl } from "../../config";
+import { baseUrl } from "../../config";
 import { FcGoogle } from "react-icons/fc";
 import { Button } from "@/components/ui/button";
 import {
@@ -43,19 +42,17 @@ const SignUp = () => {
       password: "",
     },
   });
-  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
-      //const response = await axios.post(`${baseUrl}/auth/signup`, data);
-      const response = await axios.post(`http://localhost:3000/auth/signup`, data);
+      const response = await axios.post(`${baseUrl}/auth/signup`, data);
+      //const response = await axios.post(`https://tiixiio.onrender.com/auth/signup`, data);
       console.log(response.data);
       if (response.status === 201) {
-        navigate("/login")
         toast.success("SignUp successful, Redirecting to the login page!");
-        // setTimeout(() => {
-        //   window.location.href = "/login";
-        // }, 3000);
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 3000);
       }
     } catch (error) {
       console.error(error);

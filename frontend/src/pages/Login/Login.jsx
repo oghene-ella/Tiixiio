@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { toast } from "react-toastify";
+import {useNavigate} from 'react-router-dom'
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 //import { baseUrl } from "../../config"
@@ -20,8 +20,10 @@ import { Input } from "@/components/ui/input";
 import { Mail } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { EyeIcon, EyeOff } from "lucide-react";
+import AuthContext from "@/context/authContext";
+import Spinner from "@/components/ui/Spinner";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -30,9 +32,11 @@ const formSchema = z.object({
 });
 
 
-const  Login = () => {
+const Login = () => {
   const [passwordType, setPasswordType] = useState(true);
   const EyeComponent = passwordType ? EyeIcon : EyeOff;
+
+  const {loading, error, message, login} = useContext(AuthContext)
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -41,30 +45,23 @@ const  Login = () => {
       password: "",
     },
   });
-
-  const navigate = useNavigate();
   
-  const onSubmit = async (data) => {
-    try {
-      // const response = await axios.post(`${baseUrl}/auth/login`, data);
-      const response = await axios.post(`https://tiixiio.onrender.com/auth/login`, data);
-      //console.log(response);
-      if (response.status === 201) {
-        localStorage.setItem('token', response.data.token);
-        //console.log(response.data)
-        // setTimeout(() => {
-        //   window.location.href = "/user/dashboard/overview";
-        // }, 3000);
 
-        navigate('/user/dashboard/overview')
-        toast.success("Logged In Sucessfully!");
-      }
-    } catch (error) {
-      console.error(error);
-      toast.error(error.message);
+  const onSubmit = async (data) => {
+    login(data)
+
+    if(error){
+      console.log(message)
+     toast.error(message)
+    }else{
+      toast.success("Logged In Sucessfully!");
+
     }
   }
 
+  if(loading){
+    return <Spinner/>
+  }
 
   return (
     <section

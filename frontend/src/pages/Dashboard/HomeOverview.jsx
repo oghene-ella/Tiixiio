@@ -1,18 +1,16 @@
-import Sidebar, { SidebarItem } from "@/components/ui/sidebar";
-import { UserRound, Home } from "lucide-react";
+import WelcomeBanner from "@/components/layout/Welcome";
+import ApiKey from "@/components/layout/Apikey";
+import ApiOverviewComponent from "@/components/layout/OverviewComp";
 
-const HomeOverview = () => {
+// Overview.js
+const Overview = () => {
   return (
-    <section className="w-full h-fit flex">
-      <Sidebar >
-        <SidebarItem icon={<Home size={20} color="#5b51cf" />} text="Overview" alert to="/user/dashboard/overview" />
-        <SidebarItem icon={<UserRound color="#5b51cf" size={20} />} text="Profile" alert to="/user/dashboard/profile" />
-      </Sidebar>
+    <div className="p-4 flex flex-col gap-5">
+      <WelcomeBanner/>
+      <ApiOverviewComponent />
+      <ApiKey />
+    </div>
+  );
+};
 
-      <h1>Overview</h1>
-      <p>ApiKey: </p>
-    </section>
-  )
-}
-
-export default HomeOverview;
+export default Overview;
