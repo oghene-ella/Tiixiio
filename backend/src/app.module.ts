@@ -11,6 +11,8 @@ import { LgasModule } from './lgas/lgas.module';
 import { SearchModule } from './search/search.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { CacheModule, CacheInterceptor } from '@nestjs/cache-manager';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -33,6 +35,11 @@ import { APP_GUARD } from '@nestjs/core';
         limit: 10,
       },
     ]),
+    CacheModule.register({
+      isGlobal: true,
+      ttl: 5,
+      max: 100,
+    }),
   ],
   controllers: [AppController],
   providers: [
@@ -40,6 +47,10 @@ import { APP_GUARD } from '@nestjs/core';
     {
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: CacheInterceptor,
     },
   ],
 })

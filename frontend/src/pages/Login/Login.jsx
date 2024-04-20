@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -29,7 +30,7 @@ const formSchema = z.object({
 });
 
 
-const Login = () => {
+const  Login = () => {
   const [passwordType, setPasswordType] = useState(true);
   const EyeComponent = passwordType ? EyeIcon : EyeOff;
 
@@ -41,18 +42,22 @@ const Login = () => {
     },
   });
 
+  const navigate = useNavigate();
+  
   const onSubmit = async (data) => {
     try {
       // const response = await axios.post(`${baseUrl}/auth/login`, data);
       const response = await axios.post(`http://localhost:3000/auth/login`, data);
       //console.log(response);
       if (response.status === 201) {
-        toast.success("Logged In Sucessfully!");
         localStorage.setItem('token', response.data.token);
         //console.log(response.data)
-        setTimeout(() => {
-          window.location.href = "/user/dashboard/overview";
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location.href = "/user/dashboard/overview";
+        // }, 3000);
+
+        navigate('/user/dashboard/overview')
+        toast.success("Logged In Sucessfully!");
       }
     } catch (error) {
       console.error(error);

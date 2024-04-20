@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
@@ -42,6 +43,7 @@ const SignUp = () => {
       password: "",
     },
   });
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -49,10 +51,11 @@ const SignUp = () => {
       const response = await axios.post(`http://localhost:3000/auth/signup`, data);
       console.log(response.data);
       if (response.status === 201) {
+        navigate("/login")
         toast.success("SignUp successful, Redirecting to the login page!");
-        setTimeout(() => {
-          window.location.href = "/login";
-        }, 3000);
+        // setTimeout(() => {
+        //   window.location.href = "/login";
+        // }, 3000);
       }
     } catch (error) {
       console.error(error);

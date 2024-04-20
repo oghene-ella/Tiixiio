@@ -17,6 +17,18 @@ export class LGA extends Document {
 
   @Prop()
   area: string;
+
+  @Prop()
+  url: string;
+
+  @Prop()
+  img: string;
+
+  @Prop()
+  description: string;
+
+  @Prop({ type: [{ type: String }] })
+  touristsAttractions: string[];
 }
 
 export const LGASchema = SchemaFactory.createForClass(LGA);
