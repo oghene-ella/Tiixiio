@@ -23,6 +23,7 @@ module.exports = {
         "dark_orange-bg": "#EB580A",
         dark_blue: "#0691B2",
         dark_bg: "#111827",
+        custom_dashboard: "#F1F5F9",
       },
       container: {
         center: true,
