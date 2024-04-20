@@ -47,7 +47,7 @@ const  Login = () => {
   const onSubmit = async (data) => {
     try {
       // const response = await axios.post(`${baseUrl}/auth/login`, data);
-      const response = await axios.post(`http://localhost:3000/auth/login`, data);
+      const response = await axios.post(`https://tiixiio.onrender.com/auth/login`, data);
       //console.log(response);
       if (response.status === 201) {
         localStorage.setItem('token', response.data.token);

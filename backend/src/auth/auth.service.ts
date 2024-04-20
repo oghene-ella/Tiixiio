@@ -49,9 +49,13 @@ export class AuthService {
     };
   }
 
-  async login(
-    loginDto: LoginDto,
-  ): Promise<{ token: string; name: string; id: string; email: string }> {
+  async login(loginDto: LoginDto): Promise<{
+    token: string;
+    name: string;
+    id: string;
+    email: string;
+    apiKey: string;
+  }> {
     const { email, password } = loginDto;
 
     const user = await this.userModel.findOne({ email });
@@ -73,6 +77,7 @@ export class AuthService {
       name: user.name,
       id: user._id.toString(),
       email: user.email,
+      apiKey: user.apiKey,
     };
   }
   private jwtBlacklist: string[] = [];
