@@ -24,54 +24,53 @@ const Explore = () => {
   };
 
   const handleSearch = async (query) => {
-    // Check if originalData is defined
     if (!originalData) {
       console.error("Original data is not defined");
       return;
     }
   
-    // If the query is empty, return the original data based on the type
-    // might work. will check it again.
-    let filteredData = [];
-    if (query.trim() === "") {
+    try {
+      let searchEndpoint = "";
       switch (location.pathname) {
         case "/explore":
-          filteredData = originalData.regions || [];
+          searchEndpoint = `https://tiixiio.onrender.com/search?query=${query}`;
           break;
         case "/explore/states":
-          filteredData = originalData.states || [];
+          searchEndpoint = `https://tiixiio.onrender.com/search?query=${query}`;
           break;
         case "/explore/lgas":
-          filteredData = originalData.lgas || [];
+          searchEndpoint = `https://tiixiio.onrender.com/search?query=${query}`;
           break;
         default:
-          filteredData = [];
+          console.error("Invalid location pathname");
+          return;
       }
-    } else {
-      // Search in regions, states, and LGAs based on the current location pathname
-      switch (location.pathname) {
-        case "/explore":
-          filteredData = (originalData.regions || []).filter((region) =>
-            region.name.toLowerCase().includes(query.toLowerCase())
-          );
-          break;
-        case "/explore/states":
-          filteredData = (originalData.states || []).filter((state) =>
-            state.name.toLowerCase().includes(query.toLowerCase())
-          );
-          break;
-        case "/explore/lgas":
-          filteredData = (originalData.lgas || []).filter((lga) =>
-            lga.toLowerCase().includes(query.toLowerCase())
-          );
-          break;
-        default:
-          filteredData = [];
-      }
-    }
   
-    setData(filteredData);
+      const response = await axios.get(searchEndpoint);
+      let searchData = [];
+
+      switch (location.pathname) {
+        case "/explore":
+          searchData = response.data.regions || [];
+          break;
+        case "/explore/states":
+          searchData = response.data.states || [];
+          break;
+        case "/explore/lgas":
+          searchData = response.data.lgas || [];
+          break;
+        default:
+          console.error("Invalid location pathname");
+          return;
+      }
+
+      setData(searchData);
+    } catch (error) {
+      console.error('Error searching:', error);
+      setData([]);
+    }
   };
+  
   
 
   const getFirst100Words = (str) => {
