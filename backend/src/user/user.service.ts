@@ -13,4 +13,9 @@ export class UserService {
     console.log(user);
     return user;
   }
+
+  async findByApiKey(apiKey: string) {
+    const apiKeyUser = this.userModel.findOne({ apiKey }).exec();
+    return apiKeyUser;
+  }
 }

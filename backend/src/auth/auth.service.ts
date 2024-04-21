@@ -96,7 +96,14 @@ export class AuthService {
     if (user) return user;
     console.log('User not found. Creating...');
     const newUser = this.userModel.create(details);
+    console.log(newUser);
     return newUser;
+  }
+
+  async validateUserByApiKey(apiKey: string): Promise<User> {
+    const user = await this.userModel.findOne({ apiKey });
+    console.log(`user val ${user}`);
+    return user;
   }
 
   async findUser(id: number) {
