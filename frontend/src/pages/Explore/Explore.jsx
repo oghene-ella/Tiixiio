@@ -98,7 +98,13 @@ const Explore = () => {
       <main className="w-10/12 flex flex-col gap-16">
         {/* Search Section */}
         <section className="flex flex-col md:flex-row justify-between items-center w-full gap-8">
-          <h1 className="text-3xl font-semibold underline decoration-wavy decoration-green-400">Explore Nigeria</h1>
+          <span className="flex gap-3 items-center">
+            <a href="/" className="text-green-500 font-bold">
+              Home
+            </a> |
+            <h1 className="text-3xl font-semibold underline decoration-wavy decoration-green-400">Explore Nigeria</h1>
+          </span>
+        
           <span className="w-full md:w-2/3">
             <SearchTag onSearch={handleSearch} />
           </span>
